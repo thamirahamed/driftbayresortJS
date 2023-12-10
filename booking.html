@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <title>Driftbay Resort</title>
+    
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/app/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/app/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/app/favicon-16x16.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="images/app/safari-pinned-tab.svg" color="#1e2d48">
+    <link rel="shortcut icon" href="images/app/favicon.ico">
+    <script src="scripts/main.js" defer></script>
+
+    <meta name="msapplication-TileColor" content="#1e2d48">
+    <meta name="msapplication-config" content="images/app/browserconfig.xml">
+    <meta name="theme-color" content="#1e2d48">  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Driftbay Resort is a luxury beach resort with branches across the world.">
+
+  </head>
+
+  <body>
+    <header class="header2">            
+      <nav class="header2__nav">
+  
+        <a href="index.html"><img class="logo" src="images/hotellogo1.webp" alt="logo"></a>
+                
+          <ul class="header__navlinks">
+            <li><a class="header__link" href="index.html">Home</a></li>
+            <li><a class="header__link" href="branches.html">Branches</a></li>
+            <li><a class="header__link" href="adventures.html">Adventures</a></li>
+            <li><a class="header__link" href="restaurants.html">Restaurants</a></li>
+            <li><a class="header__booknow btn" href="booking.html">Book Now</a></li>
+          </ul>
+      
+          <button class="header__bars">
+            <img src="images/bars.svg" alt="Menu Bar Button">           
+          </button>
+      
+      </nav>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav2">
+      <nav> 
+        <ul class="mobile-nav__menu">
+          <li><a href="index.html" class="mobile-nav__link">Home</a></li>
+          <li><a href="branches.html" class="mobile-nav__link">Branches</a></li>
+          <li><a href="adventures.html" class="mobile-nav__link">Adventures</a></li>
+          <li><a href="restaurants.html" class="mobile-nav__link">Restaurants</a></li>
+          <li><a href="booking.html" class="mobile-nav__btn btn">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- End of Mobile Navigation -->
+
+    <div class="booking__hero">
+        <h1 class="booking__hero-text">BOOKINGS</h1>
+    </div>
+
+    <main>
+
+      <div class="booking container section">
+        <form id="booking__form">
+          <fieldset>
+            <legend>Personal Details</legend>
+              <div class="booking__row">
+                <div class="booking__inputBox">
+                  <input type="text" required id="fName">
+                  <span>First Name</span>
+                  <i id="fNameValidate"></i>
+                  <p class="validate" id="fNameAlert">Please enter your First Name</p>
+                </div>
+        
+                <div class="booking__inputBox">
+                  <input type="text" required id="lName">
+                  <span>Last Name</span>
+                  <i id="lNameValidate"></i>
+                  <p class="validate" id="lNameAlert">Please enter your Last Name</p>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="text" required id="email">
+                  <span>Email Address</span>
+                  <i id="emailValidate"></i>
+                  <p class="validate" id="emailAlert">Please enter a Valid Email Address</p>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" required id="phone">
+                  <span>Phone Number</span>
+                  <i id="phoneValidate"></i>
+                  <p class="validate" id="phoneAlert">Please enter a Valid Phone Number</p>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="text" required id="city">
+                  <span>City</span>
+                  <i id="cityValidate"></i>
+                  <p class="validate" id="cityAlert">Please enter your City Name</p>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="text" required id="country">
+                  <span>Country</span>
+                  <i id="countryValidate"></i>
+                  <p class="validate" id="countryAlert">Please enter your Country Name</p>
+                </div>
+              </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Booking Details</legend>
+              <div class="booking__row">
+                <div class="booking__inputBox date">
+                  <input type="date" required id="checkIn">
+                  <span>Check-in Date</span>
+                  <i id="checkInValidate"></i>
+                  <p class="validate" id="checkInAlert">Please enter a Valid Check-In Date</p>
+                </div>
+
+                <div class="booking__inputBox date">
+                  <input type="date" required id="checkOut">
+                  <span>Check-out Date</span>
+                  <i id="checkOutValidate"></i>
+                  <p class="validate" id="checkOutAlert">Please enter a Valid Check-Out Date</p>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" min="0" required id="single">
+                  <span>No. of Rooms <u>Single Room</u></span>
+                  <i id="singleValidate"></i>
+                  <!-- <p class="validate">Please enter a Valid </p> -->
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" min="0" required id="double">
+                  <span>No. of Rooms <u>Double Room</u></span>
+                  <i id="doubleValidate"></i>
+                  <!-- <p class="validate">Please enter your Country Name</p> -->
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" min="0" required id="triple">
+                  <span>No. of Rooms <u>Triple Room</u></span>
+                  <i id="tripleValidate"></i>
+                  <!-- <p class="validate">Please enter your Country Name</p> -->
+                </div>
+                
+                <div class="booking__inputBox">
+                  <input type="number"required min="1" id="adults">
+                  <span>No. of Adults</span>
+                  <i id="adultValidate"></i>
+                  <p class="validate" id="adultAlert">Please enter at least One Adult</p>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" required min="0" id="children">
+                  <span>No. of Children</span>
+                  <i></i>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" min="0" required id="meals">
+                  <span>No. of Kids above 5 Years <u>Meals</u></span>
+                  <i></i>
+                </div>
+
+                <div class="booking__options">
+                  <span>Extra Addons :</span>
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input type="checkbox" name="addons" id="wifi" value="wifi">
+                        <span>WiFi</span>
+                      </label>
+                    </div>
+                  
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input type="checkbox" name="addons" id="extraBed" value="extrabed">
+                        <span>Extra Bed</span>
+                      </label>
+                    </div>
+
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input type="checkbox" name="addons" id="poolView" value="poolview">
+                        <span>Pool View</span>
+                      </label>
+                    </div>
+                </div>
+
+                <div class="booking__inputBox promo">
+                  <input type="text" required id="promoCode">
+                  <span>Promo Code</span>
+                  <i></i>
+                  <img id="promoTick" src="images/blueTick.png" alt="Blue Tick">
+                </div>
+
+                <div class="booking__btn">
+                  <button class="btn" id="roomFavorites" type="button">Add to Favorites</button>
+                  <button class="btn" id="checkLoyalty" type="button">Check Loyalty</button>
+                  <button class="btn" id="bookRooms" type="button">Book Rooms</button>
+                </div>
+
+              </div>
+          </fieldset>
+          
+          <fieldset>
+            <legend>Diving Booking</legend>
+              <div class="booking__row">
+                <div class="booking__inputBox">
+                  <input type="number"required id="localAdults">
+                  <span>No. of Local Adults</span>
+                  <i id="lAdultsValidate"></i>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" required id="localChildren">
+                  <span>No. of Local Children</span>
+                  <i id="lKidsValidate"></i>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number"required id="foreignAdults">
+                  <span>No. of Foreign Adults</span>
+                  <i id="fAdultsValidate"></i>
+                </div>
+
+                <div class="booking__inputBox">
+                  <input type="number" required id="foreignChildren">
+                  <span>No. of Foreign Children</span>
+                  <i id="fKidsValidate"></i>
+                </div>
+
+                <div class="booking__options">
+                  <span>Diving Guide :</span>
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input type="checkbox" id="adultGuide" value="adultGuide">
+                        <span>Adults</span>
+                      </label>
+                    </div>
+
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input type="checkbox" id="kidsGuide" value="kidsGuide">
+                        <span>Kids</span>
+                      </label>
+                    </div>
+                </div>
+              </div>
+
+              <div class="booking__btn">
+                <button class="btn" id="advFavorites" type="button">Add to Favorites</button>
+                <button class="btn" id="bookAdv" type="button">Book Adventure</button>
+              </div>
+          </fieldset>
+
+          <div class="booking__btn">
+            <!-- <button class="btn" id="favorites">Add to Favorites</button> -->
+            <!-- <button class="btn2" type="reset">Reset</button> -->
+            <!-- <button class="btn" id="bookRooms">Book Rooms</button> -->
+          </div>
+
+        </form>
+      </section>
+
+      <section class="popupScreen">
+        <span id="blur"></span>
+        <div id="popupBox">
+          <div class="popupContent">
+            <img src="images/greenTick.svg" alt="Green Tick">
+            <h2>Thank you for Booking</h2>
+            <button type="button" class="btn confirmBtn" id="confirmBtn">Ok</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="AdvPopupScreen">
+        <span id="blur"></span>
+        <div id="popupBoxAdv">
+          <div class="popupContent">
+            <img src="images/greenTick.svg" alt="Green Tick">
+            <h2>Thank you for Booking</h2>
+            <button type="button" class="btn confirmBtn" id="confirmBtnAdv">Ok</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bubbles">
+        <div class="loyaltyPoints" id="loyaltyPoints" style="display: none;">
+          <span>Total Loyalty Points</span><br>
+          <p id="points">00</p>
+        </div>
+
+        <div class="advPrice" id="advPriceBubble" style="display: none;">
+          <span>Total Adventure Price</span><br>
+          <p id="advPrice"><u>LKR</u> 0.00</p>
+        </div>
+
+        <div class="bookingPrice" id="bookingPriceBubble" style="display: none;">
+          <span>Total Booking Price</span><br>
+          <p id="totalPrice"><u>LKR</u> 0.00</p>
+        </div>
+      </section>
+
+      <section class="booking__overall">
+        <h1>Overall Booking</h1>
+        <i></i>
+        <table class="booking__overallTable table" id="overallTable">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Check-in Date</td>
+              <td>Check-Out Date</td>
+              <td>Single Rooms</td>
+              <td>Double Rooms</td>
+              <td>Triple Rooms</td>
+              <td>No. of Adults / Children</td>
+              <td>WiFi</td>
+              <td>Extra Bed</td>
+              <td>Pool View</td>
+              <td>Total Cost</td>
+            </tr>
+          </thead>
+          <tbody id="overallTableBody"> 
+
+          </tbody>
+        </table>
+        <h1>Overall Adventure Booking</h1>
+        <i></i>
+        <table class="booking__overallTable table" id="advOverallTable">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>No. of Local Adults</td>
+              <td>No. of Local Children</td>
+              <td>No. of Foreign Adults</td>
+              <td>No. of Foreign Children</td>
+              <td>Guide for Adults</td>
+              <td>Guide for Kids</td>
+              <td>Total Cost</td>
+            </tr>
+          </thead>
+          <tbody id="advTableBody">
+
+          </tbody>
+        </table>
+      </section>
+
+      <div class="section"></div> <!--Space between content and footer-->
+
+    </main>
+
+    <footer class="footer">
+
+      <!-- REFERENCES
+      
+        Anantara Kalutara (2023), Rooms. Available at: https://www.anantara.com/en/kalutara/rooms. (Accessed: August 23rd, 2023)
+
+      -->
+
+      <div class="footer__row">
+            
+        <div class="footer__col">
+          <div class="footer__lnk">
+            <a href="index.html"><img loading="lazy" class="footer__logo" src="images/hotellogo1.webp" alt="logo"></a>
+          </div>
+        </div>
+    
+        <div class="footer__col">
+          <h3>Contact Us</h3>
+          <div class="footer__address">
+            <p>St. Sebastian Rd<br>Kalutara<br>12000</p>
+          </div>
+          <div class="footer__email-id">
+            <p><i>enquiries@driftbayresort.lk</i></p>
+          </div>
+          <div class="footer__phone-number">    
+            <h4>+94 11 256 4386</h4>
+          </div>
+        </div>
+    
+        <div class="footer__col">
+          <h3>Quick Links</h3>
+            <div class="footer__links">
+              <p><a class="footer__link" href="index.html">Home</a></p>
+              <p><a class="footer__link" href="branches.html">Branches</a></p>
+              <p><a class="footer__link" href="adventures.html">Adventures</a></p>
+              <p><a class="footer__link" href="restaurants.html">Restaurants</a></p>
+              <p><a class="footer__link" href="booking.html">Book Now</a></p>
+            </div>
+        </div>
+    
+        <div class="footer__col">
+          <h3>Socials</h3>
+          <div class="footer__socials">
+            <div class="footer__lnk">
+              <a href="https://instagram.com"><img loading="lazy" class="footer__social" src="images/instagram.webp" alt="Instagram"></a>
+            </div>
+            <div class="footer__lnk">
+              <a href="https://facebook.com"><img loading="lazy" class="footer__social" src="images/facebook.webp" alt="Facebook"></a>
+            </div>
+            <div class="footer__lnk">
+              <a href="https://twitter.com"><img loading="lazy" class="footer__social" src="images/twitter.webp" alt="Twitter"></a>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    
+      <div class="footer__credits">
+        <p>Thamir Ahamed &copy; - All Rights Reserved</p>
+      </div>
+    
+    </footer>
+    </div>
+  </body>
+    
+</html>
