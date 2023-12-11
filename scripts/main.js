@@ -893,7 +893,18 @@ function saveRoomBookingToFavorites() {
 
 // Function to save adventure booking details to local storage
 function saveAdventureBookingToFavorites() {
+    // Fetch the selected adventure type
+    const advTypeInputs = document.getElementsByName('advType');
+    let selectedAdvType = '';
+    for (const advTypeInput of advTypeInputs) {
+        if (advTypeInput.checked) {
+            selectedAdvType = advTypeInput.value;
+            break;
+        }
+    }
+
     const adventureBookingDetails = {
+        adventureType: selectedAdvType,
         localAdults: localAdultsInput.value || 0,
         localChildren: localChildrenInput.value || 0,
         foreignAdults: foreignAdultsInput.value || 0,
