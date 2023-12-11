@@ -168,7 +168,7 @@ roomFavoritesBtn.addEventListener('click', () => {
     }
 });
 advFavoritesBtn.addEventListener('click', () => {
-    if(validateBookingForm()){
+    if(validateAdvForm()){
         saveAdventureBookingToFavorites();
     }
 });
