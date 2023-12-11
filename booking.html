@@ -64,7 +64,7 @@
 
     <main>
 
-      <div class="booking container section">
+      <section class="booking container section">
         <form id="booking__form">
           <fieldset>
             <legend>Personal Details</legend>
@@ -152,7 +152,7 @@
                 </div>
                 
                 <div class="booking__inputBox">
-                  <input type="number"required min="1" id="adults">
+                  <input type="number" required min="1" id="adults">
                   <span>No. of Adults</span>
                   <i id="adultValidate"></i>
                   <p class="validate" id="adultAlert">Please enter at least One Adult</p>
@@ -211,10 +211,34 @@
           </fieldset>
           
           <fieldset>
-            <legend>Diving Booking</legend>
+            <legend>Adventure Booking</legend>
               <div class="booking__row">
+                <div class="booking__options" id="radio">
+                  <span>Adventure Type :</span>
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input name="advType" type="radio" id="diving" value="Diving">
+                        <span>Diving</span>
+                      </label>
+                    </div>
+
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input name="advType" type="radio" id="whale" value="Whale Watching">
+                        <span>Whale Watching</span>
+                      </label>
+                    </div>
+
+                    <div class="booking__checkBox">
+                      <label> 
+                        <input name="advType" type="radio" id="yala" value="Yala Park">
+                        <span>Yala National Park</span>
+                      </label>
+                    </div>
+                </div>
+              
                 <div class="booking__inputBox">
-                  <input type="number"required id="localAdults">
+                  <input type="number" required id="localAdults">
                   <span>No. of Local Adults</span>
                   <i id="lAdultsValidate"></i>
                 </div>
@@ -226,7 +250,7 @@
                 </div>
 
                 <div class="booking__inputBox">
-                  <input type="number"required id="foreignAdults">
+                  <input type="number" required id="foreignAdults">
                   <span>No. of Foreign Adults</span>
                   <i id="fAdultsValidate"></i>
                 </div>
@@ -254,18 +278,12 @@
                     </div>
                 </div>
               </div>
-
+            </div>
               <div class="booking__btn">
                 <button class="btn" id="advFavorites" type="button">Add to Favorites</button>
                 <button class="btn" id="bookAdv" type="button">Book Adventure</button>
               </div>
           </fieldset>
-
-          <div class="booking__btn">
-            <!-- <button class="btn" id="favorites">Add to Favorites</button> -->
-            <!-- <button class="btn2" type="reset">Reset</button> -->
-            <!-- <button class="btn" id="bookRooms">Book Rooms</button> -->
-          </div>
 
         </form>
       </section>
@@ -282,11 +300,10 @@
       </section>
 
       <section class="AdvPopupScreen">
-        <span id="blur"></span>
         <div id="popupBoxAdv">
-          <div class="popupContent">
+          <div class="popupContent advPopup">
             <img src="images/greenTick.svg" alt="Green Tick">
-            <h2>Thank you for Booking</h2>
+            <h2 id="advConfirmMsg"></h2>
             <button type="button" class="btn confirmBtn" id="confirmBtnAdv">Ok</button>
           </div>
         </div>
@@ -338,6 +355,7 @@
           <thead>
             <tr>
               <td>Name</td>
+              <td>Adventure Type</td>
               <td>No. of Local Adults</td>
               <td>No. of Local Children</td>
               <td>No. of Foreign Adults</td>
@@ -351,6 +369,13 @@
 
           </tbody>
         </table>
+      </section>
+
+      <section class="container">
+        <div class="totalOverallPrice">
+          <h2>Total Overall Price</h2>
+          <p id="totalOverallPrice">LKR 00.00</p>
+        </div>
       </section>
 
       <div class="section"></div> <!--Space between content and footer-->
@@ -419,7 +444,6 @@
       </div>
     
     </footer>
-    </div>
   </body>
     
 </html>

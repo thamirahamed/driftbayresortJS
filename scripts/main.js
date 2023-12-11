@@ -1,3 +1,5 @@
+//Mobile Ham Burger Menu
+
 const headerBtn = document.querySelector('.header__bars');
 const mobileNav = document.querySelector('.mobile-nav');
 const mobileNavTwo = document.querySelector('.mobile-nav2');
@@ -47,6 +49,7 @@ const extraBedCheckbox = document.getElementById('extraBed');
 const poolCheckBox = document.getElementById('poolView');
 const promoInput = document.getElementById('promoCode');
 const promoTick = document.getElementById('promoTick');
+const advTypeRadio = document.getElementById('radio');
 const localAdultsInput = document.getElementById('localAdults');
 const localChildrenInput = document.getElementById('localChildren');
 const foreignAdultsInput = document.getElementById('foreignAdults');
@@ -70,7 +73,13 @@ const popupMenu = document.getElementById('popupBox');
 const blurOverlay = document.getElementById('blur');
 const confirmBtn = document.getElementById('confirmBtn');
 const popupAdvMenu = document.getElementById('popupBoxAdv');
+const advConfirmMsg = document.getElementById('advConfirmMsg')
 const confirmAdvBtn = document.getElementById('confirmBtnAdv');
+const totalOverallPriceElement = document.getElementById('totalOverallPrice');
+const today = new Date().toISOString().split('T')[0]; // Get current date in yyyy-mm-dd format
+
+// Set minimum date for check-in and check-out inputs
+checkInInput.min = today; // Minimum date is today\
 
 //Adding Event Listeners for all input fields
 fNameInput.addEventListener('input', () => {
@@ -101,11 +110,19 @@ checkInInput.addEventListener('change', () => {
     updateStayDuration();
     updateTotalPrice();
     resetValidation();
+    setMinCheckOutDate(); 
+
+    if (checkOutInput.value < this.value) {
+        checkOutInput.value = this.value; // Reset check-out date if it's earlier than check-in date
+    }
 });
 checkOutInput.addEventListener('change', () => {
     updateStayDuration();
     updateTotalPrice();
     resetValidation();
+    if (this.value < checkInInput.value) {
+        checkOutInput.value = checkInInput.value; // Reset check-out date if it's earlier than check-in date
+    }
 });
 singleRoomInput.addEventListener('input', () => {
     updateTotalPrice();
@@ -158,6 +175,7 @@ confirmBtn.addEventListener('click', () => {
     updateLoyaltyPoints();
     resetCurrentBooking();
     hideBookingPopup();
+    calculateTotalPrices();
 });
 advBookBtn.addEventListener('click', () => {
     if(validateAdvForm()){
@@ -168,12 +186,21 @@ confirmAdvBtn.addEventListener('click', () => {
     updateAdvOverallBooking();
     resetCurrentBooking();
     hideAdvPopup();
+    calculateTotalPrices();
 });
 
 // Function to reset the loyalty points in local storage on page reload
 window.addEventListener('load', function() {
-    localStorage.removeItem('loyaltyPoints');
+    localStorage.setItem('loyaltyPoints', '0');
 });
+
+// Function to set minimum check-out date based on check-in date
+function setMinCheckOutDate() {
+    const selectedDate = new Date(checkInInput.value);
+    selectedDate.setDate(selectedDate.getDate() + 1); // Add one day to the selected check-in date
+    const minCheckOutDate = selectedDate.toISOString().split('T')[0];
+    checkOutInput.min = minCheckOutDate;
+}
 
 //Function to find duration of stay
 function updateStayDuration() {
@@ -384,9 +411,20 @@ function updateAdvOverallBooking() {
     // Refernce table body
     const advTableBody = document.getElementById('advTableBody');
 
+    // Fetch the selected adventure type
+    const advTypeInputs = document.getElementsByName('advType');
+    let selectedAdvType = '';
+    for (const advTypeInput of advTypeInputs) {
+        if (advTypeInput.checked) {
+            selectedAdvType = advTypeInput.value;
+            break;
+        }
+    }
+
     // Gather all the necessary details for the overall booking
     const overallAdvDetails = {
         name: `${fNameInput.value} ${lNameInput.value}`,
+        advType: selectedAdvType,
         localAdults : localAdultsInput.value || 0,
         localKids: localChildrenInput.value || 0,
         foreignAdults: foreignAdultsInput.value || 0,
@@ -399,6 +437,7 @@ function updateAdvOverallBooking() {
     // Define labels for each detail
     const labels = {
         name: 'Name',
+        advType: 'Adventure Type',
         localAdults: 'No. of Local Adults',
         localKids: 'No. of Local Children',
         foreignAdults: 'No. of Foreign Adults',
@@ -425,8 +464,20 @@ function showBookingPopup() {
 
 // Function to show adventure confirmation popup
 function showAdvPopup() {
+    // Fetch the selected adventure type
+    const advTypeInputs = document.getElementsByName('advType');
+    let selectedAdvType = '';
+    for (const advTypeInput of advTypeInputs) {
+        if (advTypeInput.checked) {
+            selectedAdvType = advTypeInput.value;
+            break;
+        }
+    }
+
     popupAdvMenu.style.display = 'flex';
     blurOverlay.style.display = 'flex';
+    advConfirmMsg.innerText = `You have placed a booking for ${selectedAdvType}`;
+
 }
 
 // Function to hide booking confirmation popup
@@ -633,6 +684,16 @@ function validateAdvForm() {
     const foreignAdults = parseInt(foreignAdultsInput.value);
     const foreignKids = parseInt(foreignChildrenInput.value);
 
+    // Validate adventure type selection
+    const advTypeInputs = document.getElementsByName('advType');
+    let isAdvTypeSelected = false;
+    for (const advTypeInput of advTypeInputs) {
+        if (advTypeInput.checked) {
+            isAdvTypeSelected = true;
+            break;
+        }
+    }
+
     let isValid = true;
 
     // Validate each input field
@@ -646,6 +707,12 @@ function validateAdvForm() {
         foreignAdultsInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
         fKids.style.background = 'red';
         foreignChildrenInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        isValid = false;
+    }
+
+    if (!isAdvTypeSelected) {
+        alert('Please select an adventure type.');
+        advTypeRadio.scrollIntoView({ behavior: 'smooth', block: 'center' });
         isValid = false;
     }
     
@@ -822,7 +889,7 @@ function saveRoomBookingToFavorites() {
     
     alert("Your choices have been favorited!");
     localStorage.setItem('favoriteRoomBooking', JSON.stringify(roomBookingDetails));
-};
+}
 
 // Function to save adventure booking details to local storage
 function saveAdventureBookingToFavorites() {
@@ -837,6 +904,40 @@ function saveAdventureBookingToFavorites() {
 
     alert("Your choices for adventure have been favorited!");
     localStorage.setItem('favoriteAdventureBooking', JSON.stringify(adventureBookingDetails));
+}
+
+// Function to calculate the total prices from both tables
+function calculateTotalPrices() {
+    // Get all rows from overallTable and advOverallTable
+    const overallRows = document.querySelectorAll('#overallTable tbody tr');
+    const advOverallRows = document.querySelectorAll('#advOverallTable tbody tr');
+
+    let totalRoomPrice = 0;
+    let totalAdvPrice = 0;
+
+    // Calculate total price from overallTable
+    overallRows.forEach(row => {
+        const totalCostCell = row.querySelector('[data-label="Total Cost"]');
+        const totalPriceText = totalCostCell.textContent.trim().replace('LKR', '').trim();
+        const totalPrice = parseFloat(totalPriceText.replace(',', '')); // Remove commas and convert to float
+        if (!isNaN(totalPrice)) {
+            totalRoomPrice += totalPrice;
+        }
+    });
+
+    // Calculate total price from advOverallTable
+    advOverallRows.forEach(row => {
+        const totalCostCell = row.querySelector('[data-label="Total Cost"]');
+        const totalPriceText = totalCostCell.textContent.trim().replace('LKR', '').trim();
+        const totalPrice = parseFloat(totalPriceText.replace(',', '')); // Remove commas and convert to float
+        if (!isNaN(totalPrice)) {
+            totalAdvPrice += totalPrice;
+        }
+    });
+
+    // Calculate total of both prices
+    const totalBothPrices = totalRoomPrice + totalAdvPrice;
+    totalOverallPriceElement.textContent = `LKR ${totalBothPrices}.00`
 }
 
 

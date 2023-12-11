@@ -1416,7 +1416,8 @@ a {
     margin: 10px 0;
 }
 
-.booking__checkBox input[type="checkbox"]{
+.booking__checkBox input[type="checkbox"],
+.booking__checkBox input[type="radio"]{
     display: none;
 }
 
@@ -1509,12 +1510,17 @@ a {
 .popupContent{
     background-color: var(--clr-light);
     border-radius: 10px;
+    padding: 20px;
     width: 375px;
     height: 225px;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.advPopup{
+    height: 290px;
 }
 
 .popupContent img{
@@ -1612,6 +1618,24 @@ a {
     width: 100%;
 }
 
+.totalOverallPrice{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: uppercase;
+}
+
+.totalOverallPrice h2{
+    font-weight: 300;
+    font-size: var(--size-2xl);
+}
+
+.totalOverallPrice p{
+    font-size: var(--size-xl);
+    font-weight: 600;
+}
+
 /* End of Booking Page */
 
 /* Desktop Viewports */
@@ -1705,6 +1729,14 @@ a {
 
     .booking__overall h1{
         font-size: var(--size-4xl);
+    }
+
+    .totalOverallPrice h2{
+        font-size: var(--size-3xl);
+    }
+
+    .totalOverallPrice p{
+        font-size: var(--size-2xl);
     }
 
     /* End of Booking Page */
@@ -1993,6 +2025,15 @@ a {
     .booking__overall h1{
         font-size: var(--size-5xl);
     }
+
+    .totalOverallPrice h2{
+        font-size: var(--size-4xl);
+    }
+
+    .totalOverallPrice p{
+        font-size: var(--size-3xl);
+    }
+
 
     /* End of Booking Page */
 
