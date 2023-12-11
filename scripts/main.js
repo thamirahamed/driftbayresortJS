@@ -162,8 +162,16 @@ foreignChildrenInput.addEventListener('input', () => {
 });
 adultGuideCheckbox.addEventListener('change', updateAdventurePrice);
 kidsGuideCheckbox.addEventListener('change', updateAdventurePrice);
-roomFavoritesBtn.addEventListener('click', saveRoomBookingToFavorites);
-advFavoritesBtn.addEventListener('click', saveAdventureBookingToFavorites);
+roomFavoritesBtn.addEventListener('click', () => {
+    if(validateBookingForm()){
+        saveRoomBookingToFavorites();
+    }
+});
+advFavoritesBtn.addEventListener('click', () => {
+    if(validateBookingForm()){
+        saveAdventureBookingToFavorites();
+    }
+});
 loyaltyBtn.addEventListener('click', displayLoyaltyPoints);
 bookRoomsBtn.addEventListener('click', () => {
     if(validateBookingForm()){
