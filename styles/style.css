@@ -1299,6 +1299,7 @@ a {
     z-index: 10;
 }
 
+.booking__inputBox label,
 .booking__inputBox span{
     position: absolute;
     left: 0;
@@ -1315,6 +1316,8 @@ a {
     justify-content: space-between;
 }
 
+.booking__inputBox input:valid ~ label,
+.booking__inputBox input:focus ~ label,
 .booking__inputBox input:valid ~ span,
 .booking__inputBox input:focus ~ span{
     font-size: var(--size-s);
@@ -1353,7 +1356,7 @@ a {
     transform: translateY(55px);
 }
 
-.booking__inputBox input:out-of-range ~ span{
+.booking__inputBox input:out-of-range ~ label{
     transform: translateY(-34px);
     font-size: var(--size-s);
     font-weight: 700;
@@ -1395,6 +1398,7 @@ a {
     margin: 25px 0;
 }
 
+.booking__options label,
 .booking__options span{
     color: var(--clr-blue900);
     text-transform: uppercase;

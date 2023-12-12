@@ -71,42 +71,42 @@
               <div class="booking__row">
                 <div class="booking__inputBox">
                   <input type="text" required id="fName">
-                  <span>First Name</span>
+                  <label for="fName">First Name</label>
                   <i id="fNameValidate"></i>
                   <p class="validate" id="fNameAlert">Please enter your First Name</p>
                 </div>
         
                 <div class="booking__inputBox">
                   <input type="text" required id="lName">
-                  <span>Last Name</span>
+                  <label for="lName">Last Name</label>
                   <i id="lNameValidate"></i>
                   <p class="validate" id="lNameAlert">Please enter your Last Name</p>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="text" required id="email">
-                  <span>Email Address</span>
+                  <label for="email">Email Address</label>
                   <i id="emailValidate"></i>
                   <p class="validate" id="emailAlert">Please enter a Valid Email Address</p>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" required id="phone">
-                  <span>Phone Number</span>
+                  <label for="phone">Phone Number</label>
                   <i id="phoneValidate"></i>
                   <p class="validate" id="phoneAlert">Please enter a Valid Phone Number</p>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="text" required id="city">
-                  <span>City</span>
+                  <label for="city">City</label>
                   <i id="cityValidate"></i>
                   <p class="validate" id="cityAlert">Please enter your City Name</p>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="text" required id="country">
-                  <span>Country</span>
+                  <label for="country">Country</label>
                   <i id="countryValidate"></i>
                   <p class="validate" id="countryAlert">Please enter your Country Name</p>
                 </div>
@@ -118,76 +118,76 @@
               <div class="booking__row">
                 <div class="booking__inputBox date">
                   <input type="date" required id="checkIn">
-                  <span>Check-in Date</span>
+                  <label for="checkIn">Check-in Date</label>
                   <i id="checkInValidate"></i>
                   <p class="validate" id="checkInAlert">Please enter a Valid Check-In Date</p>
                 </div>
 
                 <div class="booking__inputBox date">
                   <input type="date" required id="checkOut">
-                  <span>Check-out Date</span>
+                  <label for="checkOut">Check-out Date</label>
                   <i id="checkOutValidate"></i>
                   <p class="validate" id="checkOutAlert">Please enter a Valid Check-Out Date</p>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" min="0" required id="single">
-                  <span>No. of Rooms <u>Single Room</u></span>
+                  <label for="single">No. of Rooms <u>Single Room</u></label>
                   <i id="singleValidate"></i>
                   <!-- <p class="validate">Please enter a Valid </p> -->
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" min="0" required id="double">
-                  <span>No. of Rooms <u>Double Room</u></span>
+                  <label for="double">No. of Rooms <u>Double Room</u></label>
                   <i id="doubleValidate"></i>
                   <!-- <p class="validate">Please enter your Country Name</p> -->
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" min="0" required id="triple">
-                  <span>No. of Rooms <u>Triple Room</u></span>
+                  <label for="triple">No. of Rooms <u>Triple Room</u></label>
                   <i id="tripleValidate"></i>
                   <!-- <p class="validate">Please enter your Country Name</p> -->
                 </div>
                 
                 <div class="booking__inputBox">
                   <input type="number" required min="1" id="adults">
-                  <span>No. of Adults</span>
+                  <label for="adults">No. of Adults</label>
                   <i id="adultValidate"></i>
                   <p class="validate" id="adultAlert">Please enter at least One Adult</p>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" required min="0" id="children">
-                  <span>No. of Children</span>
+                  <label for="children">No. of Children</label>
                   <i></i>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" min="0" required id="meals">
-                  <span>No. of Kids above 5 Years <u>Meals</u></span>
+                  <label for="meals">No. of Kids above 5 Years <u>Meals</u></label>
                   <i></i>
                 </div>
 
                 <div class="booking__options">
                   <span>Extra Addons :</span>
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="wifi"> 
                         <input type="checkbox" name="addons" id="wifi" value="wifi">
                         <span>WiFi</span>
                       </label>
                     </div>
                   
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="extraBed"> 
                         <input type="checkbox" name="addons" id="extraBed" value="extrabed">
                         <span>Extra Bed</span>
                       </label>
                     </div>
 
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="poolView"> 
                         <input type="checkbox" name="addons" id="poolView" value="poolview">
                         <span>Pool View</span>
                       </label>
@@ -196,7 +196,7 @@
 
                 <div class="booking__inputBox promo">
                   <input type="text" required id="promoCode">
-                  <span>Promo Code</span>
+                  <label for="promoCode">Promo Code</label>
                   <i></i>
                   <img id="promoTick" src="images/blueTick.png" alt="Blue Tick">
                 </div>
@@ -216,21 +216,21 @@
                 <div class="booking__options" id="radio">
                   <span>Adventure Type :</span>
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="diving"> 
                         <input name="advType" type="radio" id="diving" value="Diving">
                         <span>Diving</span>
                       </label>
                     </div>
 
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="whale"> 
                         <input name="advType" type="radio" id="whale" value="Whale Watching">
                         <span>Whale Watching</span>
                       </label>
                     </div>
 
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="yala"> 
                         <input name="advType" type="radio" id="yala" value="Yala Park">
                         <span>Yala National Park</span>
                       </label>
@@ -239,46 +239,45 @@
               
                 <div class="booking__inputBox">
                   <input type="number" required id="localAdults">
-                  <span>No. of Local Adults</span>
+                  <label for="localAdults">No. of Local Adults</label>
                   <i id="lAdultsValidate"></i>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" required id="localChildren">
-                  <span>No. of Local Children</span>
+                  <label for="localChildren">No. of Local Children</label>
                   <i id="lKidsValidate"></i>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" required id="foreignAdults">
-                  <span>No. of Foreign Adults</span>
+                  <label for="foreignAdults">No. of Foreign Adults</label>
                   <i id="fAdultsValidate"></i>
                 </div>
 
                 <div class="booking__inputBox">
                   <input type="number" required id="foreignChildren">
-                  <span>No. of Foreign Children</span>
+                  <label for="foreignChildren">No. of Foreign Children</label>
                   <i id="fKidsValidate"></i>
                 </div>
 
                 <div class="booking__options">
                   <span>Diving Guide :</span>
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="adultGuide"> 
                         <input type="checkbox" id="adultGuide" value="adultGuide">
                         <span>Adults</span>
                       </label>
                     </div>
 
                     <div class="booking__checkBox">
-                      <label> 
+                      <label for="kidsGuide"> 
                         <input type="checkbox" id="kidsGuide" value="kidsGuide">
                         <span>Kids</span>
                       </label>
                     </div>
                 </div>
               </div>
-            </div>
               <div class="booking__btn">
                 <button class="btn" id="advFavorites" type="button">Add to Favorites</button>
                 <button class="btn" id="bookAdv" type="button">Book Adventure</button>
@@ -303,7 +302,7 @@
         <div id="popupBoxAdv">
           <div class="popupContent advPopup">
             <img src="images/greenTick.svg" alt="Green Tick">
-            <h2 id="advConfirmMsg"></h2>
+            <h2 id="advConfirmMsg">1</h2>
             <button type="button" class="btn confirmBtn" id="confirmBtnAdv">Ok</button>
           </div>
         </div>

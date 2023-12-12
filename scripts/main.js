@@ -178,7 +178,8 @@ bookRoomsBtn.addEventListener('click', () => {
         showBookingPopup();
     }
 });
-confirmBtn.addEventListener('click', () => {
+confirmBtn.addEventListener('click', () => {+
+    
     updateOverallBooking();
     updateLoyaltyPoints();
     resetCurrentBooking();
